@@ -11,9 +11,12 @@ class UserController extends Controller {
         return view('welcome');
     }
 
+     public function principal() {
+        return view('principal');
+    }
     public function login(Request $request) {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            dd('Voce esta logado');
+             return view('principal');
         }else{
             dd('Voce não esta logado');
         }
